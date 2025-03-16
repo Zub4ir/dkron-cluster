@@ -1,0 +1,33 @@
+{
+    "path": {
+        "/v1/members": {
+            "capabilities": ["read"]
+        },
+        "/v1/jobs": {
+            "capabilities": [
+                "list",
+                "read"
+            ]
+        },
+        "/v1/jobs/*": {
+            "capabilities": [
+                "read"
+            ]
+        },            
+        "/v1/jobs/*/executions*": {
+            "capabilities": ["read"]
+        },
+        "/v1/jobs/*/executions/*": {
+            "capabilities": ["read"]
+        },
+        "/v1/leader": {
+            "capabilities": ["read"]
+        },
+        "/v1/isleader": {
+            "capabilities": ["read"]
+        },
+        "/v1/busy": {
+            "capabilities": ["read"]
+        }
+    }
+}

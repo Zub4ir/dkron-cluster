@@ -1,0 +1,31 @@
+services:
+
+  dkron-leader:
+    container_name: dkron-leader
+    restart: always
+    build:
+      context: ./dkron
+      dockerfile: Dockerfile
+    ports: 
+      - 8080:8080
+    command: agent --server --bootstrap-expect=1 --disable-http-tls --node-name dkron-leader --tag tag1=dkron-pim --join 'dkron-node-1' # --join 'dkron-node-2'
+    volumes:
+    - dkron_data:/opt/local/dkron/dkron.data
+
+  # dkron-node-1:
+  #   container_name: dkron-node-1
+  #   restart: always
+  #   image: registry.gitlab.com/distribworks/dkron-pro
+  #   ports: 
+  #     - 8081:8080
+  #   command: agent --server --node-name dkron-node-1 --tag tag1=node-1
+
+#   dkron-node-2:
+#     container_name: dkron-node-2
+#     restart: always
+#     image: registry.gitlab.com/distribworks/dkron-pro
+#     command: agent --node-name dkron-node-2 --tag tag1=node-2   
+
+volumes:
+    dkron_data:
+      driver: local
