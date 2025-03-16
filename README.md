@@ -2,6 +2,10 @@
 
 Pro Edition
 
+##  RUN 
+
+On terminal `docker compose up --build -d` and then do ACL below.
+
 ## ACL
 
 Remember to modify the rpc address if the needed.
